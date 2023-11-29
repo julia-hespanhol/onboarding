@@ -14,4 +14,9 @@ class HelloWorldController
         $response->getBody()->write("Hello World (and welcome to Glance ✨)");
         return $response->withHeader("content-type", "text/html");
     }
+
+    public function memberList(Request $request, Response $response): Response
+    {
+        $response->getBody()->write()
+    }
 }

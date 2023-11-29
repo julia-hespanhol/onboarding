@@ -26,6 +26,16 @@ final class Dependencies
             ExperimentWriteRepositoryInterface::class => function (Connection $connection) {
                 return new SqlExperimentRepository($connection);
             },
+            MemberViewRepositoryInterface::class => function (Connection $connection) {
+                return new SqlMemberRepository($connection);
+            },
+            MemberReadRepositoryInterface::class => function (Connection $connection) {
+                return new SqlMemberRepository($connection);
+            },
+            MemberWriteRepositoryInterface::class => function (Connection $connection) {
+                return new SqlMemberRepository($connection);
+            },
+            
         ];
     }
 }

@@ -19,10 +19,10 @@ class CollaborationRoutes
         // $app->delete("/experiments/{id}", [CollaborationController::class, "deleteExperiment"]);
 
         // Member routes
-        // $app->get("/members", [CollaborationController::class, "findMembers"]);
-        // $app->get("/members/{id}", [CollaborationController::class, "findMemberById"]);
-        // $app->post("/members", [CollaborationController::class, "registerMember"]);
-        // $app->patch("/members/{id}", [CollaborationController::class, "updateMember"]);
-        // $app->delete("/members/{id}", [CollaborationController::class, "deleteMember"]);
+        $app->get("/members", [CollaborationController::class, "findMembers"]);
+        $app->get("/members/{id}", [CollaborationController::class, "findMemberById"]);
+        $app->post("/members", [CollaborationController::class, "registerMember"]);
+        $app->patch("/members/{id}", [CollaborationController::class, "updateMember"]);
+        $app->delete("/members/{id}", [CollaborationController::class, "deleteMember"]);
     }
 }
