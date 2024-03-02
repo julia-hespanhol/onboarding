@@ -11,4 +11,6 @@ class MemberException extends DomainException
         $message = "Member not found.";
         return new self($message);
     }
+
+    
 }

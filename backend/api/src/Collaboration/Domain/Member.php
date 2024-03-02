@@ -52,7 +52,7 @@ class Member
     public static function create(
         IntegerId $id,
         string $firstName,
-        string $fullName,
+        string $lastName,
         string $email,
         int $age,
         int $experimentId

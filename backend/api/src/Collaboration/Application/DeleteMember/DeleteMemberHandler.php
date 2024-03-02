@@ -22,10 +22,11 @@ final class DeleteMemberHandler
         $this->memberReadRepository = $memberReadRepository;
     }
 
-    public function handle(DeleteMemberCommand $command): void
+    public function handle(int $command): void
     {
         
-        $this->memberWriteRepository->deleteMember($command);
+        $status = $this->memberWriteRepository->deleteMember($command);
+
 
     }
 

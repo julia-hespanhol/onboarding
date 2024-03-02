@@ -124,7 +124,7 @@ class SqlMemberRepository implements
             'lastName' => $member->lastName(),
             'email' => $member->email(),
             'age' => $member->age(),
-            'experimentId' => $member->experimentId()->toInteger()
+            'experimentId' => $member->experimentId()
         ];
         $statement->execute($payload);
     }
@@ -158,16 +158,13 @@ class SqlMemberRepository implements
         $statement->execute($payload);
     }
 
-
-    //Delete members by ID and return true or false.
-
-    public function deleteMemberById(int $id): bool 
+    public function deleteMember(int $id): void
     {
         $query = "DELETE FROM MEMBER  
-                  AS M WHERE M.ID = :id
+                   WHERE ID = :id
         ";
 
-        $statement = $this->conection->prepare($query);
+        $statement = $this->connection->prepare($query);
 
         $payload = [
             'id' => $id

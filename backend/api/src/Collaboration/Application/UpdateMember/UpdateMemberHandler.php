@@ -24,7 +24,6 @@ final class UpdateMemberHandler
     public function handle(UpdateMemberCommand $command, int $memberId): Member
     {
         $this->command = $command; 
-        //$experimentId = new IntegerId($command->experimentId());
         $member = $this->memberReadRepository->findById($memberId);
         
 

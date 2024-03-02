@@ -46,7 +46,7 @@ class Member implements \JsonSerializable
         return [
             "id" => $this->id,
             "firstName" => $this->firstName,
-            "lastName" => $this->fullName,
+            "lastName" => $this->lastName,
             "email" => $this->email,
             "age" => $this->age,
             "experimentId" => $this->experimentId

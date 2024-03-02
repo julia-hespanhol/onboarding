@@ -7,7 +7,6 @@ namespace Glance\Onboarding\Collaboration\Application\DeleteMember;
 final class DeleteMemberCommand
 {
     private $id;
-    
 
     public function __construct(
        int $id;

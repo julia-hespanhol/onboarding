@@ -58,6 +58,7 @@ class CollaborationController
                 "members" => $this->memberDetailsRepository->findAllMembers()
             ])
         );
+        $response = $response->withHeader('Access-Control-Allow-Origin', '*');
 
         return $response->withAddedHeader("Content-Type", "application/json");
     }
@@ -104,7 +105,6 @@ class CollaborationController
     public function registerMember(Request $request, Response $response): Response
     {
         $input = json_decode($request->getBody()->getContents(), true);
-        var_dump($input);
 
         $command = RegisterMemberCommand::fromHttpRequest($input["member"]);
 
@@ -128,15 +128,15 @@ class CollaborationController
     {
         $id = (int) $args['id'];
 
-        $member = $this->memberViewRepository->findDetailsById($id);
+        $member = $this->memberDetailsRepository->findDetailsById($id);
 
         if (!$member) {
             throw new HttpNotFoundException($request, "Member not found with id: {$id}");
         }
 
-       $response->getBody()->write(json_encode([$this->deleteMemberHandler->deleteMember($id)]));
+       $response->getBody()->write(json_encode([$this->deleteMemberHandler->handle($id)]));
 
-       return $response->withHeader("content-type", "application/json");
+       return $response->withAddedHeader("Content-Type", "application/json");
     }
 
     public function findExperiments(Request $request, Response $response): Response

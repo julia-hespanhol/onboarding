@@ -6,5 +6,6 @@ interface MemberWriteRepositoryInterface
 {
     public function registerMember(Member $member): void;
     public function updateMember(Member $member, int $id): void;
+    public function deleteMember(int $id): void;
 
 }
